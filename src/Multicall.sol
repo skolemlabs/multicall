@@ -11,8 +11,9 @@ contract Multicall {
         address target;
         bytes callData;
     }
-    function aggregate(Call[] memory calls) public returns (uint256 blockNumber, bytes[] memory returnData) {
+    function aggregate(Call[] memory calls) public returns (uint256 blockNumber, bytes32 hash, bytes[] memory returnData) {
         blockNumber = block.number;
+        hash = getBlockHash(blockNumber);
         returnData = new bytes[](calls.length);
         for(uint256 i = 0; i < calls.length; i++) {
             (bool success, bytes memory ret) = calls[i].target.call(calls[i].callData);

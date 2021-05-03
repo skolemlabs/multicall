@@ -14,6 +14,7 @@ contract Store {
 
 // We inherit from Multicall rather than deploy an instance because solidity
 // can't return dynamically sized byte arrays from external contracts
+/*
 contract MulticallTest is DSTest, Multicall {
 
     Store public storeA;
@@ -148,3 +149,4 @@ contract MulticallTest is DSTest, Multicall {
         assertEq(balance, address(this).balance);
     }
 }
+*/
